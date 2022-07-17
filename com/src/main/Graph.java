@@ -69,6 +69,11 @@ public class Graph {
         onlineMeeting.startDateTime = OffsetDateTimeSerializer.deserialize("2022-07-12T21:30:34.2444915+00:00");
         onlineMeeting.endDateTime = OffsetDateTimeSerializer.deserialize("2022-07-12T22:00:34.2464912+00:00");
         onlineMeeting.subject = "Route Test Meeting Meeting";
+        LobbyBypassSettings settings = new LobbyBypassSettings() ;
+        settings.isDialInBypassEnabled = true ;
+        settings.scope = LobbyBypassScope.EVERYONE ;
+        onlineMeeting.lobbyBypassSettings  = settings;
+
         MeetingParticipants meetingParticipants = new MeetingParticipants();
         return  _userClient.users("a819e5c9-364f-4478-a214-c682505d3b7a").onlineMeetings()
                 .buildRequest()
